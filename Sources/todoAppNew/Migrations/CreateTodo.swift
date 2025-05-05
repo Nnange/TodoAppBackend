@@ -5,6 +5,10 @@ struct CreateTodo: AsyncMigration {
         try await database.schema("todos")
             .id()
             .field("title", .string, .required)
+            .field("isDone", .bool, .required)
+            .field("timestamp", .datetime, .required)
+            .field("deadline", .datetime)
+            .field("priority", .string, .required)
             .create()
     }
 
